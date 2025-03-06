@@ -7,17 +7,6 @@ void setup() {
   pinMode(3, OUTPUT); // Richtung
 
   digitalWrite(4, LOW);
-
-  // digitalWrite(3,LOW); // im Uhrzeigersinn (rechts)
-
-  // for(stepCounter = 0; stepCounter < steps; stepCounter++) {
-  //   digitalWrite(2,HIGH);
-  //   delayMicroseconds(1000);
-  //   digitalWrite(2,LOW);
-  //   delayMicroseconds(1000);
-  // }
-  
-  // delay(1000);
 }
 
 void loop() {
