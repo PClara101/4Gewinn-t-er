@@ -1,5 +1,5 @@
 /*
-  ZUFALL/START
+  START
 
   - zufällige Bestimmung des Beginners random()
   - dazu visueller Effekt 
