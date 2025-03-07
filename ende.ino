@@ -7,7 +7,7 @@
           - getätigte Spielzüge zählen(von rob und Spielerin), wenn Anzahl der Spielsteine erreicht und kein Gewinner festgestellt --> unentschieden
 */
 
-#define PIEZO 6
+#define PIEZO 5
 #define ROTE_LED 9
 #define BLAUE_LED 8
 
