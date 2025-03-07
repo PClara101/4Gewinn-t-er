@@ -8,7 +8,7 @@
 
 
 */
-#define PIEZO 6
+#define PIEZO 5
 #define ROTE_LED 9
 #define BLAUE_LED 8
 
