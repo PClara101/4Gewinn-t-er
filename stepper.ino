@@ -41,11 +41,11 @@ void setup() {
 }
 
 void push() {
-  for (int i = 0; i<180; i++) {
+  for (int i = 180; i>=0; i--) {
     servo1.write(i);
     delay(15);
   }
-  for (int i = 180; i >= 0; i--) {
+for (int i = 0; i <= 180; i++) {
     servo1.write(i);
     delay(15);
   }
