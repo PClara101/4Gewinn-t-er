@@ -10,7 +10,7 @@ stepper::stepper(bool enablePin,int stepPin,bool dirPin) {
   _dirPin = dirPin;
   
   _steps = 0;
-  currentPosition = 0;  // Parkplatz
+  currentPosition = 0;  // Startpunkt Parkplatz
   digitalWrite(_enablePin, HIGH);  // Stepper ist aus    
   digitalWrite(_dirPin, HIGH); // fahrtrichtung nach links richtung Trichter
 }
@@ -18,7 +18,7 @@ stepper::stepper(bool enablePin,int stepPin,bool dirPin) {
 void stepper::moveTo(int col) {
   int calculateSteps(int col);
   digitalWrite(_enablePin, LOW);  // Motor an 
-  if (_steps < 0) {
+  if (currentPosition =! 0) {
     digitalWrite(_dirPin, LOW); // Richtung Parkplatz
     for (int stepCounter = 0; stepCounter < _steps; stepCounter++) {
       digitalWrite(_stepPin, HIGH);
@@ -44,7 +44,7 @@ void stepper::moveTo(int col) {
 
 int stepper::calculateSteps(int col) {
   if (col == 0) {
-    _steps = currentPosition * -1;
+    _steps = currentPosition;
   }
   else if (col == 1) {
     _steps = 1345;
