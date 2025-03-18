@@ -1,5 +1,5 @@
 #include "Arduino.h"
-#include "stepper.h"
+#include "stepper001.h"
 stepper::stepper(bool enablePin,int stepPin,bool dirPin) {
   pinMode(enablePin, OUTPUT);
   pinMode(stepPin, OUTPUT);
