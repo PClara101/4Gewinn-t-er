@@ -21,7 +21,7 @@ int DatenMiniMax::minimax(int depth, bool maximizing) {
         int bestScore = 10000;
         for (int c = 0; c < COLUMNS; c++) {
             if (richtigerZug(c)) {
-                Zug(c, PLAYER);
+                Zug(c, Spieler);
                 bestScore = min(bestScore, minimax(depth + 1, true));
                 zurueckZug(c);
             }
@@ -35,7 +35,7 @@ int DatenMiniMax::BesterSpielzug() {
     int bestScore = -10000;
     for (int c = 0; c < COLS; c++) {
         if (richtigerMove(c)) {
-            Zug(c, AI);
+            Zug(c, SpielLogik);
             int score = minimax(0, false);
             zurueckZug(c);
             if (score > bestScore) {
