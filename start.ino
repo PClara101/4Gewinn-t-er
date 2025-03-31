@@ -31,7 +31,7 @@ void setup() {
   ritardando();
   
   // anzeigen des Beginners
-  if (beginner == 3) {
+  if (beginner == 2) {
     blueLED.toggle();
   }
   else {
@@ -43,11 +43,11 @@ void loop() {
 
 }
 
-// losen bestimmt "zufällig" eine Zahl zwischen 3 und 5 (also entweder 3 oder 4)
-// zufällig zwischen den Anschlusspins der LEDs wählen
+// losen bestimmt "zufällig" eine Zahl zwischen 1 und 3 (also entweder 1 oder 2)
+// 1 ist Spieler, 2 ist Roboter
 
 int losen() {
-  beginner = random(3,5);
+  beginner = random(1,3);
   //Serial.println(beginner); 
 }
 
