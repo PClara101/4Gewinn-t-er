@@ -1,5 +1,6 @@
+#define KNOEPFE A0
 void setup() {
-  pinMode(A0,INPUT);
+  pinMode(KNOEPFE,INPUT);
   Serial.begin(9600);
 }
 
