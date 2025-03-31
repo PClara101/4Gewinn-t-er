@@ -1,15 +1,6 @@
 #include <Arduino.h>
 
-#define MAX_DEPTH 4
-
-void zurueckZug(int col) {
-    for (int i = 0; i < ROWS; i++) {
-        if (board[i][col] != 0) {
-            board[i][col] = 0;
-            break;
-        }
-    }
-}
+//#define MAX_DEPTH 4
 
 int minimax(int depth, bool maximizing) {
     if (checkWin(SpielLogik)) return 1000 - depth;
@@ -43,7 +34,7 @@ int BesterSpielzug() {
     int bestMove = -1;
     int bestScore = -10000;
     for (int c = 0; c < COLS; c++) {
-        if (isValidMove(c)) {
+        if (richtigerMove(c)) {
             Zug(c, AI);
             int score = minimax(0, false);
             zurueckZug(c);
