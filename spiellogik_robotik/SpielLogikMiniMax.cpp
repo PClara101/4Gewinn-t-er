@@ -2,7 +2,7 @@
 
 //#define MAX_DEPTH 4
 
-int minimax(int depth, bool maximizing) {
+int DatenMiniMax::minimax(int depth, bool maximizing) {
     if (checkWin(SpielLogik)) return 1000 - depth;
     if (checkWin(Spieler)) return -1000 + depth;
     if (depth == MAX_DEPTH) return 0;
@@ -30,7 +30,7 @@ int minimax(int depth, bool maximizing) {
     }
 }
 
-int BesterSpielzug() {
+int DatenMiniMax::BesterSpielzug() {
     int bestMove = -1;
     int bestScore = -10000;
     for (int c = 0; c < COLS; c++) {
