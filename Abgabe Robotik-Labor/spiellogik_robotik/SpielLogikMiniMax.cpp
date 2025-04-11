@@ -52,7 +52,8 @@ int DatenMiniMax::besterSpielzug() {
             spielmechaniken.Zug(c, SpielLogik);
             int score = minimax(1, false);
             spielmechaniken.zurueckZug(c);
-            
+
+            // Kontrollpunkt zur Überprüfung der korrekten Wiedergabe der  Werte 
             Serial.print("Evaluating Column: ");
             Serial.println(c);
             Serial.print("Current Score: ");
@@ -71,11 +72,16 @@ int DatenMiniMax::besterSpielzug() {
             }
         }
     }
-
+    
+    // dieser Zufallsgenerator ist dafür zuständig zwischen den Zeilen mit den
+    // besten Werten zufällig zu wählen, weil ansonsten der Algorithmus sonst hauptsächlich 
+    // in die erste setzen würde
     int zufallsIndex = random(AnzahlBesteZuege);
     bestMove = besteZuege[zufallsIndex];
 
+    // Kontrollpunkt zur Überprüfung der korrekten Wiedergabe der  Werte 
     Serial.print("Best Move for AI: ");
     Serial.println(bestMove);  
+    
     return bestMove;
 }
