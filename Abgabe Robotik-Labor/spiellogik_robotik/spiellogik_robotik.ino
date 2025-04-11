@@ -43,7 +43,7 @@ void setup() {
 }  
 
 void loop() {
-  // weil 20 Steine pro Farbe und dann ein Unendschied erreicht ist 
+  // weil 20 Steine pro Farbe und dann ein Unentschieden erreicht ist 
   for (int rounds = 1; rounds <= 20; rounds++) {
 
     // schaut ob Spieler anfängt, wenn nicht ist durch den if-Befehl der Teil vom Code dauerhaft ausgeschalten 
