@@ -16,7 +16,7 @@ void LedKlasse::blinken(int blinkRate) {
   delay(blinkRate);
 }
 
-// ändern des Zusands der Led 
+// ändern des Zustands der LED 
 void LedKlasse::toggle() {
   stateLed = !stateLed;
   digitalWrite(_pin, stateLed);
