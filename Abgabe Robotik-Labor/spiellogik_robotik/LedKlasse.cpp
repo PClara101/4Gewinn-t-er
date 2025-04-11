@@ -1,12 +1,14 @@
 #include "Arduino.h"
 #include "LedKlasse.h"
 
+// Constructer erstellt LED Objekte
  LedKlasse::LedKlasse(int pin) {
   pinMode(pin, OUTPUT);
   _pin = pin;
   stateLed = false;
 }
 
+// Blinken in einer bestimmten Geschwindigkeit
 void LedKlasse::blinken(int blinkRate) {
   digitalWrite(_pin, HIGH);
   delay(blinkRate);
@@ -14,6 +16,7 @@ void LedKlasse::blinken(int blinkRate) {
   delay(blinkRate);
 }
 
+// ändern des Zusands der Led 
 void LedKlasse::toggle() {
   stateLed = !stateLed;
   digitalWrite(_pin, stateLed);
