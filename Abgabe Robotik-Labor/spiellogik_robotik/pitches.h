@@ -2,6 +2,8 @@
 
   Public Constants
 
+  > wird gebraucht für den Piezolautsprecher
+
 *************************************************/
 
 #define NOTE_B0  31
