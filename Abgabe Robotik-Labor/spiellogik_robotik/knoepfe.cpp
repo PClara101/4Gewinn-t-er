@@ -6,45 +6,55 @@ void knoepfe::knoepfe1(int pin) {
 }
 
 int knoepfe::knoepfe2() {
-  int col = -1;
+  int col = -1;  // Position: Parkplatz
+  
+  // Knopfwerte werden nur übermittelt, wenn Schlitten auf Parkplatz ist
   while (col == -1) {
     int buttonvalue = analogRead(A0);
-  // Spalte 6
+    
+  // erkenne und übergebe Spalte 6
     if(buttonvalue <= 130 && buttonvalue > 120) {
-    Serial.println(6);
-    col = 6;
+      Serial.println(6);
+      col = 6;
     }
-  // Spalte 5
+    
+  // erkenne und übergebe Spalte 5
     if(buttonvalue <= 180 && buttonvalue > 165) {
-    Serial.println(5);
-    col = 5;
+      Serial.println(5);
+      col = 5;
     }
-  // Spalte 4
+    
+  // erkenne und übergebe Spalte 4
     if(buttonvalue <= 210 && buttonvalue > 200) {
-    Serial.println(4);
-    col = 4;
+      Serial.println(4);
+      col = 4;
     }
-  // Spalte 3
+    
+  // erkenne und übergebe Spalte 3
     if(buttonvalue <= 265 && buttonvalue > 250) {
-    Serial.println(3);
-    col = 3;
+      Serial.println(3);
+      col = 3;
     }
-  // Spalte 2
+    
+  // erkenne und übergebe Spalte 2
     if(buttonvalue <= 350 && buttonvalue > 340) {
-    Serial.println(2);
-    col = 2;
+      Serial.println(2);
+      col = 2;
     }
-  // Spalte 1
+    
+  // erkenne und übergebe Spalte 1
     if(buttonvalue <= 520 && buttonvalue > 510) {
-    Serial.println(1);
-    col = 1;
+      Serial.println(1);
+      col = 1;
     }
-  // Spalte 0
+    
+  // erkenne und übergebe Spalte 0
     if(buttonvalue <= 1020 && buttonvalue > 1010) {
-    Serial.println(0);
-    col = 0;
+      Serial.println(0);
+      col = 0;
     }
+    
     delay(300);
   }
-  return col;
+  return col;  // übergebe Spalte
 }
