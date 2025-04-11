@@ -1,3 +1,7 @@
+/*
+ Headerdatei für die Steuerung der LEDs
+*/
+
 #ifndef LedKlasse_h
 #define LedKlasse_h
 #include "Arduino.h"
