@@ -3,6 +3,7 @@
 #include "DatenMiniMax.h"
 #include "SpielMechaniken.h" 
 
+// fix Werte
 #define ROWS 6
 #define COLUMNS 7
 #define EMPTY 0
@@ -10,14 +11,18 @@
 #define SpielLogik 2
 #define MAX_DEPTH 4
 
+// Objekt erstellen für Header-Datei
 SpielMechaniken spielmechaniken;
 
 
 int DatenMiniMax::minimax(int depth, bool maximizing) {
+    // Kontrolle ob jemand gewinnen kann um zu gewinnen oder zu präventieren
     if (spielmechaniken.letzterSpielzug(SpielLogik)) return 1000 - depth;
     if (spielmechaniken.letzterSpielzug(Spieler)) return -1000 + depth;
     if (depth == MAX_DEPTH) return 0;
-    
+
+    // wird erstmals übersprungen, weil bool maximizing = false ist
+    // wird rekursiv aufgerufen in else
     if (maximizing) {
         int bestScore = -10000;
         for (int c = 0; c < COLUMNS; c++) {
@@ -33,6 +38,7 @@ int DatenMiniMax::minimax(int depth, bool maximizing) {
         for (int c = 0; c < COLUMNS; c++) {
             if (spielmechaniken.richtigerZug(c)) {
                 spielmechaniken.Zug(c, Spieler);
+                // aufruf für die Rekursion
                 bestScore = min(bestScore, minimax(depth + 1, true));
                 spielmechaniken.zurueckZug(c);
             }
@@ -44,13 +50,16 @@ int DatenMiniMax::minimax(int depth, bool maximizing) {
 int DatenMiniMax::besterSpielzug() {
     int bestMove = -1;
     int bestScore = -10000;
-    int besteZuege[COLUMNS];
-    int AnzahlBesteZuege = 0;
+    int besteZuege[COLUMNS]; //erstellen des Arrays wo die besten Züge gesammalt werden um zwischen ihenn auszulosen 
+    int AnzahlBesteZuege = 0; 
 
     for (int c = 0; c < COLUMNS; c++) {
         if (spielmechaniken.richtigerZug(c)) {
             spielmechaniken.Zug(c, SpielLogik);
+            // Aufruf MiniMax-Algorithmus 
             int score = minimax(1, false);
+            // löscht die Züge die vom Minimax Algorithmus gesetzt werden 
+            // für die Kalkulation, um das Spielfeld nicht zu zerstören
             spielmechaniken.zurueckZug(c);
 
             // Kontrollpunkt zur Überprüfung der korrekten Wiedergabe der  Werte 
@@ -82,6 +91,7 @@ int DatenMiniMax::besterSpielzug() {
     // Kontrollpunkt zur Überprüfung der korrekten Wiedergabe der  Werte 
     Serial.print("Best Move for AI: ");
     Serial.println(bestMove);  
-    
+
+    //Rückgabe der besten Zeile
     return bestMove;
 }
