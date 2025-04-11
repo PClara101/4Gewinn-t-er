@@ -12,11 +12,12 @@ startEnde startende;
 
 void startEnde::start() {
   soundStart();
-  losen();
+  losen();    //auslosen des Beginners
+  // visuelle Darstellung des Auslosungsprozesses:
   accelerando();
   ritardando();
   
-  // anzeigen des Beginners
+  // anzeigen des Beginners über die LEDs
   if (beginner == 3) {
     blaueLed.toggle();
     return beginner = 3;
@@ -73,6 +74,7 @@ void startEnde::soundStart() {
   }
 }
 
+// Auslosen des Beginners
 void startEnde::losen() {
   beginner = random(3,5);
 }
