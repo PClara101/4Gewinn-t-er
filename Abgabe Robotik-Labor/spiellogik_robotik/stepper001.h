@@ -1,0 +1,24 @@
+// verhindert Mehrfacheinbindung:
+#ifndef stepper001_h
+#define stepper001_h
+#include "Arduino.h"
+
+// definiere der Klasse stepper
+class stepper {
+
+  public:  // Funktion von außen zugänglich
+    stepper(int enablePin,int stepPin,int dirPin);  // initialisiere Objekt mit den Pin-Nummern
+    void moveTo(int col);  // bewege zu Position col
+    int calculateSteps(int col);  // berechnet wie viele Schritte nötig sind
+    void push();
+
+  private:  // Variablen nur innerhalb der Klasse
+    int currentPosition;  // speichert aktuelle Position
+    int _steps;  // Anzahl der Schritte, die für nächste Bewegung erforderlich sind
+    int _enablePin;  // bool -> int
+    int _stepPin;  // Pin für die Schritt-Signale
+    int _dirPin;  // Pin zur Steuerung der Drehrichtung
+  
+};
+
+#endif
