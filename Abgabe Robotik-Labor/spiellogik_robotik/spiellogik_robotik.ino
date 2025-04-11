@@ -8,6 +8,7 @@
 #include "startEnde.h"
 #include "Servo.h";
 
+// fix Werte
 #define ROWS 6
 #define COLUMNS 7
 #define EMPTY 0
@@ -16,6 +17,7 @@
 #define MAX_DEPTH 4
 #define SERVO 7
 
+// Einbeziehung von Objekten für den zugriff auf die Header-Dateien
 extern SpielMechaniken spielmechaniken; 
 extern knoepfe Knoepfe; 
 extern DatenMiniMax datenminimax; 
@@ -24,11 +26,11 @@ extern LedKlasse ledklasse;
 extern Servo servo;
 extern startEnde startende;
 
+// Initialisierung 
 LedKlasse roteLed(9);
 LedKlasse blaueLed(8);
 int board[ROWS][COLUMNS];
 int beginner;
-
 
 void setup() {
   Serial.begin(9600);
@@ -41,8 +43,10 @@ void setup() {
 }  
 
 void loop() {
+  // weil 20 Steine pro Farbe und dann ein Unendschied erreicht ist 
   for (int rounds = 1; rounds <= 20; rounds++) {
 
+    // schaut ob Spieler anfängt, wenn nicht ist durch den if-Befehl der Teil vom Code dauerhaft ausgeschalten 
     if (beginner == 4){ 
       Serial.print("Runde: ");
       Serial.println(rounds);
@@ -55,7 +59,7 @@ void loop() {
           Serial.println("Ungültiger Zug. Bitte erneut versuchen.");
           SpielerZug = -1; 
         }
-
+      // der Code um rein digital Spielen zu können, per Seriellen-Monitor-Eingabe
       //while (SpielerZug == -1) {
           //if (Serial.available() > 0) {
               //SpielerZug = Serial.parseInt();  // Liest die eingegebene Zahl des Spielers
@@ -115,7 +119,7 @@ void loop() {
       Serial.println("Die KI hat keinen gültigen Zug gefunden.");
       }
 
-
+    // schaut ob die KI anfängt, wenn nicht ist durch den if-Befehl der Teil vom Code dauerhaft ausgeschalten
     if (beginner == 3){ 
 
       Serial.print("Runde: ");
@@ -129,7 +133,7 @@ void loop() {
           Serial.println("Ungültiger Zug. Bitte erneut versuchen.");
           SpielerZug = -1; 
         }
-
+      // der Code um rein digital Spielen zu können, per Seriellen-Monitor-Eingabe
       //while (SpielerZug == -1) {
           //if (Serial.available() > 0) {
               //SpielerZug = Serial.parseInt();  // Liest die eingegebene Zahl des Spielers
