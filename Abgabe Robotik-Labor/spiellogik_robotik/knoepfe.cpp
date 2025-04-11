@@ -6,7 +6,7 @@ void knoepfe::knoepfe1(int pin) {
 }
 
 int knoepfe::knoepfe2() {
-  int col = -1;  // Position: Parkplatz
+  int col = -1;  // initialisiere Parkplatz Position
   
   // Knopfwerte werden nur übermittelt, wenn Schlitten auf Parkplatz ist
   while (col == -1) {
