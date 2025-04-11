@@ -1,3 +1,7 @@
+/*
+  Headerdatei für die Knöpfe
+*/
+
 #ifndef knoepfe_h
 #define knoepfe_h
 #include "Arduino.h"
