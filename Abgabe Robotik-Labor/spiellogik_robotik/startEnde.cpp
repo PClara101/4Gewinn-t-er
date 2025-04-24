@@ -43,6 +43,7 @@ void startEnde::ende(int gewinnter) {
   }
   else if (gewinnter == 2) {
     soundTie();
+    roteLed.toggle();
     for (int i = 0; i < 20; i++) {
     roteLed.toggle();
     blaueLed.toggle();
